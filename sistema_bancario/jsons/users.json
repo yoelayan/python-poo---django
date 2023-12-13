@@ -1,0 +1,12 @@
+[
+    {"nombre": "Juan Perez", "email": "juan.perez@example.com", "password": "abcdABCD1"},
+    {"nombre": "Maria Lopez", "email": "maria.lopez@example.com", "password": "abcdABCD1"},
+    {"nombre": "Carlos Gomez", "email": "carlos.gomez@example.com", "password": "abcdABCD1"},
+    {"nombre": "Ana Torres", "email": "ana.torres@example.com", "password": "abcdABCD1"},
+    {"nombre": "Luis Rodriguez", "email": "luis.rodriguez@example.com", "password": "abcdABCD1"},
+    {"nombre": "Sofia Guzman", "email": "sofia.guzman@example.com", "password": "abcdABCD1"},
+    {"nombre": "Pedro Castillo", "email": "pedro.castillo@example.com", "password": "abcdABCD1"},
+    {"nombre": "Isabel Paredes", "email": "isabel.paredes@example.com", "password": "abcdABCD1"},
+    {"nombre": "Jorge Mendoza", "email": "jorge.mendoza@example.com", "password": "abcdABCD1"},
+    {"nombre": "Carmen Rios", "email": "carmen.rios@example.com", "password": "abcdABCD1"}
+]

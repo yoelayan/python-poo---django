@@ -1,21 +1,21 @@
 from bank.cuenta import Cuenta
 from auth.user import Usuario
 from bank.main import SistemaBanco
+import json
 
-cuenta = Cuenta(
-    'Miguel',
-    'miguelito@gmail.com',
-    'abcdABCD1'
-)
 
-# Sumamos por defecto 1000 al saldo de la cuenta
-msg = cuenta + 1000
-print(msg)
+with open('jsons/users.json') as file:
+    usuarios_json = json.load(file)
 
-msg = cuenta - 200
-print(msg)
 
 sistema = SistemaBanco()
+for usuario in usuarios_json:
+    cuenta = Cuenta(
+        nombre=usuario['nombre'],
+        email=usuario['email'],
+        password=usuario['password']
+    )
+    cuenta + 100000
+    Usuario.agregar_usuario(sistema.usuarios, cuenta)
 
-Usuario.agregar_usuario(sistema.usuarios, cuenta)
 sistema.ejecutar()

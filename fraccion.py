@@ -90,3 +90,23 @@ v1 = Vector(1, 2)
 v2 = Vector(2, 4)
 
 print((v1 + v2).producto_punto(v2))
+
+"""
+__init__: Este método se utiliza para inicializar un objeto recién creado.
+
+__str__: Este método se utiliza para representar el objeto como una cadena,
+por ejemplo, para imprimirlo.
+
+
+__repr__:
+Este método se utiliza para obtener una representación de cadena que puede
+ser utilizada para recrear el objeto utilizando la función eval().
+
+__add__, __sub__, __mul__, __truediv__:
+Estos métodos se utilizan para sobrecargar los operadores
+aritméticos (+, -, *, /).
+
+__eq__, __ne__, __lt__, __gt__, __le__, __ge__:
+Estos métodos se utilizan para sobrecargar los operadores de comparación
+(==, !=, <, >, <=, >=).
+"""
