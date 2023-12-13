@@ -1,9 +1,16 @@
 import base64
 import re
+from dataclasses import dataclass
+
 from .exceptions import PasswordWek
 
 
+@dataclass
 class Usuario:
+    nombre: str
+    email: str
+    password: str
+
     def __init__(self, nombre, email, password):
         if self.validar_fuerza_password(password):
             self.nombre = nombre
@@ -14,8 +21,23 @@ class Usuario:
     def __str__(self):
         return f'{self.nombre} : {self.email}'
 
-    class Meta:
-        abstract = True
+    @staticmethod
+    def agregar_usuario(lista_usuarios, usuario):
+        lista_usuarios.append(usuario)
+
+    @staticmethod
+    def buscar_usuario(lista_usuarios, email):
+        for usuario in lista_usuarios:
+            if usuario.email == email:
+                return usuario
+        return None
+
+    @staticmethod
+    def login_usuario(cls, lista_usuarios, email, password):
+        usuario = cls.buscar_usuario(lista_usuarios, email)
+        if usuario:
+            return usuario.autenticar(password)
+        return False
 
     def actualizar(
             self, nombre: str = None, email: str = None, password: str = None):

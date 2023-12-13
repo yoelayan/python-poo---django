@@ -3,6 +3,7 @@ from bank.exceptions import (
     CuentaInvalidadError, SaldoInsuficienteError
 )
 from .cuenta import Cuenta
+from auth.user import Usuario
 
 
 class SistemaBanco(System):
@@ -19,7 +20,8 @@ class SistemaBanco(System):
                 'Ingrese el email de la cuenta destino',
                 'Ingrese la cantidad a transferir: '
                 ]),
-            '5': ('logout', '')
+            '5': ('ver_historico', ''),
+            '6': ('logout', '')
         }
 
     def mostrar_opciones(self):
@@ -27,7 +29,8 @@ class SistemaBanco(System):
         print("2. Retirar dinero")
         print("3. Consultar saldo")
         print("4. Transferir dinero a otra cuenta")
-        print("5. Salir")
+        print("5. Consultar Transacciones")
+        print("6. Salir")
 
     def ejecutar(self):
         while True:
@@ -39,7 +42,8 @@ class SistemaBanco(System):
                 print(e)
 
             email_seleccionado = input()
-            usuario_seleccionado: Cuenta = self.buscar_usuario(
+            usuario_seleccionado: Cuenta = Usuario.buscar_usuario(
+                self.usuarios,
                 email_seleccionado
             )
             if not usuario_seleccionado:
@@ -56,12 +60,16 @@ class SistemaBanco(System):
 
                 metodo, mensajes = self.opciones_disponibles[opcion]
 
+                entradas = []
+
                 if isinstance(mensajes, str):
                     print(mensajes)
+                    if mensajes:
+                        entradas.append(input())
                 elif isinstance(mensajes, list):
                     for mensaje in mensajes:
                         print(mensaje)
-
-                if opcion == '1':
-                    cantidad = float(input())
-                    getattr(usuario_seleccionado, metodo)(cantidad)
+                        entradas.append(input())
+                msg = getattr(usuario_seleccionado, metodo)(*entradas)
+                print(msg)
+            print("Gracias por usar nuestro banco, hasta pronto!")

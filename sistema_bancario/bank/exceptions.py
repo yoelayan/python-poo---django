@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 
 class SaldoInsuficienteError(Exception):
     def __init__(self, saldo_actual, cantidad_retirada):
@@ -6,9 +8,9 @@ class SaldoInsuficienteError(Exception):
         self.cantidad_retirada = cantidad_retirada
 
 
+@dataclass
 class InvalidoError(Exception):
-    def __init__(self, mensaje):
-        self.mensaje = mensaje
+    mensaje: str
 
 
 class CuentaInvalidadError(InvalidoError):
