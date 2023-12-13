@@ -54,7 +54,10 @@ class Cuenta(Usuario):
         """
         self.add_transaccion('Deposito', cantidad)
 
-        return f'Ha depositado {cantidad}. El saldo actual de {self.nombre} es {self.saldo}'
+        return (
+            f'Ha depositado {cantidad}. El saldo actual de {self.nombre}'
+            ' es {self.saldo}'
+        )
 
     def se_puede_retirar(self, cantidad):
         return cantidad <= self.saldo
@@ -83,4 +86,7 @@ class Cuenta(Usuario):
         self.saldo -= cantidad
         cuenta_destino.depositar(cantidad)
         self.add_transaccion(f'Transferencia a {cuenta_destino}', cantidad)
-        return f'Han sido transferidos {cantidad} a {cuenta_destino}', cuenta_destino
+        return (
+            f'Han sido transferidos {cantidad} a {cuenta_destino}',
+            cuenta_destino
+        )
