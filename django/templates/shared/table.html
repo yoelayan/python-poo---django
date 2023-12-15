@@ -1,0 +1,25 @@
+{% load conf_table %}
+
+<div>
+    {{table.title}}
+</div>
+<table id="{{table.prefix}}" class="table">
+    <thead>
+        {% for column in table.header %}
+            <th>
+                {{column.name}}
+            </th>
+        {% endfor %}
+    </thead>
+    <tbody>
+        {% for row in table.data %}
+            <tr>
+                {% for column in table.header %}
+                    <td>
+                        {% include 'shared/'|add:'types/'|add:column.type|add:'.html' with row=row item_attribute=column.item|get:row %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

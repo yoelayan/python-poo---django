@@ -41,11 +41,12 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    'accounts'
+    'apps.bank'
 ]
 
 THIRDY_PARTY_APPS = [
-    'pandas'
+    'pandas',
+    'bootstrapform'
 ]
 
 
@@ -67,7 +68,9 @@ ROOT_URLCONF = "sistema_bancario.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -76,6 +79,9 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            'libraries': {
+                'conf_table': 'templatetags.conf_table'
+            }
         },
     },
 ]
@@ -88,8 +94,15 @@ WSGI_APPLICATION = "sistema_bancario.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "sistema_bancario",
+        "USER": "yoelayan",
+        "PASSWORD": "2323",
+        "HOST": "localhost",
+        "PORT": "5433",
+        'OPTIONS': {
+            'options': '-c search_path=bank'
+        },
     }
 }
 

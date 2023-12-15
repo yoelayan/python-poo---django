@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Sistema Bancario</a>
+        <a class="navbar-brand" href="{% url 'list_accounts' %}">Listar Cuentas</a>
+        <a class="navbar-brand" href="{% url 'create_account' %}">Crear Cuenta</a>
+        <!-- Aquí puedes añadir más elementos a tu barra de navegación -->
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        <!-- El contenido específico de cada página irá aquí -->
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
