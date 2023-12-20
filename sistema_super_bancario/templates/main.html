@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <header class="bg-primary text-white text-center p-5">
+        <h1>Bienvenido al Mejor Sistema Bancario</h1>
+        <p>Ofrecemos una amplia gama de servicios financieros para satisfacer todas tus necesidades.</p>
+    </header>
+{% endblock %}
+{% block content %}
+    <section class="row justify-content-center text-center">
+        <div class="col-md-6">
+            <h2>¿Por qué somos el mejor?</h2>
+            <p>Con nuestra extensa red de sucursales y nuestro excelente servicio al cliente, estamos dedicados a ayudarte a alcanzar tus metas financieras.</p>
+        </div>
+    </section>
+    <section class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <h2>Abre una cuenta con nosotros</h2>
+            <p>Con nuestros competitivos tipos de interés y nuestra dedicación a tu satisfacción, no hay mejor momento para unirte a nosotros.</p>
+            <a class="btn btn-primary mt-3" href="{% url 'apperture_account' %}">Abrir una cuenta</a>
+            <a class="btn btn-primary mt-3" href="{% url 'login' %}">Ya tengo una cuenta</a>
+        </div>
+    </section>  
+{% endblock %}

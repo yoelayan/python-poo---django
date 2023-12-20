@@ -1,0 +1,1 @@
+[{"model": "bank.kindtransaction", "pk": 1, "fields": {"description": "Deposito", "code": "DEP"}}, {"model": "bank.kindtransaction", "pk": 2, "fields": {"description": "Retiro", "code": "OUT"}}, {"model": "bank.kindtransaction", "pk": 3, "fields": {"description": "Transferencia", "code": "SEND"}}]
